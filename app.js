@@ -20,6 +20,10 @@ function setNumber(hour, minute) {
   const minuteNumber = document.querySelector('.number__minute');
 
   const AMPM = document.querySelector('.number__ampm');
+
+  hour = hour < 10 ? '0' + hour : hour;
+  minute = minute < 10 ? '0' + minute : minute;
+
   hourNumber.textContent = hour;
   minuteNumber.textContent = minute;
 
@@ -64,8 +68,6 @@ function setDate(day, month, date) {
 
   dayEle.textContent = dayArray[day];
   monthEle.textContent = monthArray[month];
-
-  date = date < 10 ? '0' + date : date;
 
   dateEle.textContent = date;
 }
