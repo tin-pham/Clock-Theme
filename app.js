@@ -14,27 +14,34 @@ const hourEle = document.querySelector('.tick--hour');
 const minuteEle = document.querySelector('.tick--minute');
 const secondEle = document.querySelector('.tick--second');
 
+function convertHour(hour) {
+  return hour >= 12 ? hour - 12 : hour;
+}
+
 function setNumber(hour, minute) {
   const hourNumber = document.querySelector('.number__hour');
 
   const minuteNumber = document.querySelector('.number__minute');
 
-  const AMPM = document.querySelector('.number__ampm');
+  const timestamp = document.querySelector('.number__ampm');
 
+  // Determine AM / PM
+  let ampm;
+  if (hour >= 12) {
+    hour = convertHour(hour);
+    ampm = 'PM';
+  } else {
+    ampm = 'AM';
+  }
+
+  // Add 0 before <10 number
   hour = hour < 10 ? '0' + hour : hour;
   minute = minute < 10 ? '0' + minute : minute;
 
   hourNumber.textContent = hour;
   minuteNumber.textContent = minute;
 
-  let ampm;
-  if (0 <= hour && hour <= 11) {
-    ampm = 'AM';
-  } else {
-    ampm = 'PM';
-  }
-
-  AMPM.textContent = ampm;
+  timestamp.textContent = ampm;
 }
 
 function setDate(day, month, date) {
@@ -76,7 +83,9 @@ function setClock(hour, minute, second) {
   const hourTick = document.querySelector('.tick--hour');
   const minuteTick = document.querySelector('.tick--minute');
   const secondTick = document.querySelector('.tick--second');
-  console.log(hour);
+
+  // Convert hour to clock base
+  hour = convertHour(hour);
   hourTick.style.transform = `translate(-50%, -100%) rotate(${scale(
     hour,
     0,
@@ -117,7 +126,6 @@ function setTime() {
   const dateObj = new Date();
 
   let hour = dateObj.getHours();
-  hour = hour >= 12 ? hour - 12 : hour;
   let minute = dateObj.getMinutes();
   let second = dateObj.getSeconds();
   let date = dateObj.getDate();
