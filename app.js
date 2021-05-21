@@ -76,16 +76,23 @@ function setClock(hour, minute, second) {
   const hourTick = document.querySelector('.tick--hour');
   const minuteTick = document.querySelector('.tick--minute');
   const secondTick = document.querySelector('.tick--second');
-
-  hourTick.style.transform = ` translate(-50%,-100%) rotate(${scaleRange(
+  console.log(hour);
+  hourTick.style.transform = `translate(-50%, -100%) rotate(${scale(
     hour,
     0,
     11,
     0,
     360
   )}deg)`;
+  // hourTick.style.transform = ` translate(-50%,-100%) rotate(${scaleRange(
+  //   hour,
+  //   0,
+  //   11,
+  //   0,
+  //   360
+  // )}deg)`;
 
-  minuteTick.style.transform = `translate(-50%, -100%) rotate(${scaleRange(
+  minuteTick.style.transform = `translate(-50%, -100%) rotate(${scale(
     minute,
     0,
     59,
@@ -93,7 +100,7 @@ function setClock(hour, minute, second) {
     360
   )}deg)`;
 
-  secondTick.style.transform = `translate(-50%, -100%) rotate(${scaleRange(
+  secondTick.style.transform = `translate(-50%, -100%) rotate(${scale(
     second,
     0,
     59,
@@ -102,7 +109,7 @@ function setClock(hour, minute, second) {
   )}deg)`;
 }
 
-function scaleRange(number, inMin, inMax, outMin, outMax) {
+function scale(number, inMin, inMax, outMin, outMax) {
   return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 }
 
@@ -110,6 +117,7 @@ function setTime() {
   const dateObj = new Date();
 
   let hour = dateObj.getHours();
+  hour = hour >= 12 ? hour - 12 : hour;
   let minute = dateObj.getMinutes();
   let second = dateObj.getSeconds();
   let date = dateObj.getDate();
