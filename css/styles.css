@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --primary: black;
+  --second: white;
+  --trans: 300ms ease;
+}
+
+body {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem;
+  background: var(--second);
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+}
+
+body.dark {
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+  --primary: white;
+  --second: black;
+}
+
+.button {
+  border: 3px solid var(--primary);
+  background: var(--second);
+  color: var(--primary);
+  outline: none;
+  padding: 1em;
+  border-radius: 20px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.button:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.clock {
+  width: 250px;
+  height: 250px;
+  position: relative;
+}
+
+.clock .tick {
+  width: 5px;
+  height: 30%;
+  top: 50%;
+  left: 50%;
+  background: var(--primary);
+  position: absolute;
+  -webkit-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+}
+
+.clock .tick--hour {
+  width: 5px;
+}
+
+.clock .tick--minute {
+  height: 40%;
+  width: 3px;
+}
+
+.clock .tick--second {
+  height: 50%;
+  background: #e63946;
+  width: 1px;
+}
+
+.clock .circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.number {
+  font-size: 5rem;
+  color: var(--primary);
+}
+
+.number__ampm {
+  font-size: 3rem;
+  font-weight: lighter;
+}
+
+.date {
+  font-size: 1.1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.25rem;
+  color: var(--primary);
+}
+
+.date__date {
+  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0.25em;
+  background: var(--primary);
+  color: var(--second);
+  border-radius: 50%;
+}
+/*# sourceMappingURL=styles.css.map */

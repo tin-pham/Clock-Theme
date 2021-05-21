@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --primary: black;
+  --second: white;
+  --trans: 300ms ease;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+  background: var(--second);
+  transition: var(--trans);
+  &.dark {
+    transition: var(--trans);
+    --primary: white;
+    --second: black;
+  }
+}
+
+.button {
+  border: 3px solid var(--primary);
+  background: var(--second);
+  color: var(--primary);
+  outline: none;
+  padding: 1em;
+  border-radius: 20px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.clock {
+  width: 250px;
+  height: 250px;
+  //   border: 1px solid grey;
+  position: relative;
+  .tick {
+    width: 5px;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    background: var(--primary);
+    position: absolute;
+    transform: translate(-50%, -100%);
+    transform-origin: bottom;
+    transition: var(--trans);
+    &--hour {
+      width: 5px;
+    }
+
+    &--minute {
+      height: 40%;
+      width: 3px;
+      //   transform: rotate(20deg);
+    }
+
+    &--second {
+      height: 50%;
+      //   transform: rotate(240deg);
+      background: #e63946;
+      width: 1px;
+    }
+  }
+
+  .circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.number {
+  font-size: 5rem;
+  color: var(--primary);
+
+  &__ampm {
+    font-size: 3rem;
+    font-weight: lighter;
+  }
+}
+
+.date {
+  font-size: 1.1rem;
+  display: flex;
+  gap: 0.25rem;
+  color: var(--primary);
+  &__date {
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 0.25em;
+    background: var(--primary);
+    color: var(--second);
+    border-radius: 50%;
+  }
+}
